@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME  = 'sample-node-app'
+        APP_NAME  = 'rish-sample-node-app'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
         // Make sure Jenkins (Homebrew LaunchAgent) can find brew-installed tools
-        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"
+        PATH = "PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
 
     stages {
@@ -38,8 +38,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''
-                    kubectl apply -f k8s/service.yaml
-                    kubectl apply -f k8s/deployment.yaml
+                    kubectl apply -f service.yaml
+                    kubectl apply -f deployment.yaml
                     kubectl set image deployment/${APP_NAME} ${APP_NAME}=${APP_NAME}:${IMAGE_TAG}
                     kubectl rollout status deployment/${APP_NAME} --timeout=120s
                 '''
