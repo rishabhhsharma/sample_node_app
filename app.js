@@ -7,7 +7,7 @@ const startTime = Date.now();
 
 function getInfo() {
   return {
-    message: 'Hello from Jenkins CI/CD Pipeline!',
+    message: 'Hello from Rish Jenkins CI/CD Pipeline!',
     version: process.env.APP_VERSION || 'dev',
     hostname: os.hostname(), // shows the pod name — great for seeing load-balancing across replicas
     uptimeSeconds: Math.floor((Date.now() - startTime) / 1000),
