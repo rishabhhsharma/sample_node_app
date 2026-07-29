@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm -v "$PWD":/app -w /app node:18-alpine \
-                        sh -c "npm ci && npm test"
+                        sh -c "if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm test"
                 '''
             }
         }
