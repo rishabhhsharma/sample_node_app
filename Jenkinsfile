@@ -25,11 +25,18 @@ pipeline {
             }
         }
 
-        stage('Build Image (inside Minikube)') {
+        stage('Build Image') {
             steps {
                 sh '''
                     docker build -t ${APP_NAME}:${IMAGE_TAG} .
                     docker tag ${APP_NAME}:${IMAGE_TAG} ${APP_NAME}:latest
+                '''
+            }
+        }
+        stage('Load Image into Minikube') {
+            steps {
+                sh '''
+                    minikube image load ${APP_NAME}:${IMAGE_TAG}
                 '''
             }
         }
