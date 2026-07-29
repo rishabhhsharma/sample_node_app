@@ -28,7 +28,6 @@ pipeline {
         stage('Build Image (inside Minikube)') {
             steps {
                 sh '''
-                    // eval $(minikube docker-env)
                     docker build -t ${APP_NAME}:${IMAGE_TAG} .
                     docker tag ${APP_NAME}:${IMAGE_TAG} ${APP_NAME}:latest
                 '''
