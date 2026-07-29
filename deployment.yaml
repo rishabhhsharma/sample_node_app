@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rish-sample-node-app
+  name: sample-node-app
   labels:
-    app: rish-sample-node-app
+    app: sample-node-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: rish-sample-node-app
+      app: sample-node-app
   template:
     metadata:
       labels:
-        app: rish-sample-node-app
+        app: sample-node-app
     spec:
       containers:
-        - name: rish-sample-node-app
+        - name: sample-node-app
           image: rish-sample-node-app:latest
           imagePullPolicy: IfNotPresent
           ports:
