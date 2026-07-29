@@ -46,8 +46,8 @@ pipeline {
                 sh '''
                     kubectl apply -f service.yaml
                     kubectl apply -f deployment.yaml
-                    kubectl set image deployment/${APP_NAME} ${APP_NAME}=${APP_NAME}:${IMAGE_TAG}
-                    kubectl rollout status deployment/${APP_NAME} --timeout=120s
+                    kubectl set image deployment/sample-node-app ${APP_NAME}=${APP_NAME}:${IMAGE_TAG}
+                    kubectl rollout status deployment/sample-node-app --timeout=120s
                 '''
             }
         }
