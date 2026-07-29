@@ -1,0 +1,17 @@
+{
+  "name": "sample-node-app",
+  "version": "1.0.0",
+  "description": "Sample app for Jenkins -> Minikube CI/CD demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
